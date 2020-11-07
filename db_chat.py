@@ -1,4 +1,3 @@
-import os
 from datetime import datetime
 
 import pandas as pd
@@ -7,7 +6,7 @@ from sqlalchemy import Column, DateTime, ForeignKey, Integer, Text, and_, create
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-DATABASE_URL = os.environ["DATABASE_URL"]
+DATABASE_URL = "postgres://oraqbjleiezmdo:4734b6ba63f8f1f7ac99f733540eeedc8f52cffbb3bbca4cabf022f783a4efb3@ec2-34-254-24-116.eu-west-1.compute.amazonaws.com:5432/d7hgh8kuosqcj0"
 
 
 class Message(declarative_base()):
