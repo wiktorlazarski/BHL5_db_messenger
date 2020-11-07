@@ -2,12 +2,11 @@ import os
 from datetime import datetime
 
 import pandas as pd
-import sqlalchemy
 from sqlalchemy import Column, DateTime, ForeignKey, Integer, Text, and_, create_engine, or_
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-DATABASE_URL = os.environ['DATABASE_URL']
+DATABASE_URL = os.environ["DATABASE_URL"]
 
 
 class Message(declarative_base()):
@@ -54,7 +53,7 @@ class DatabaseChat:
             receiver=receiver_id,
             message_content=message,
             advertisement_id=advertisement_id,
-            message_timestamp=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            message_timestamp=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         )
         session.add(new_record)
         session.commit()
