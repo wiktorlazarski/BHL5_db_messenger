@@ -40,6 +40,17 @@ class DatabaseChat:
             ORDER BY msg.message_timestamp"""
 
         messages_df = pd.read_sql(chat_query, con=self.engine)
+
+        def map_name(user_id: int) -> str:
+            return sender_name if user_id == sender_id else receiver_name
+
+        messages_df["sender"] = messages_df["sender"].map(
+            lambda user_id: sender_name if user_id == sender_id else receiver_name
+        )
+        messages_df["receiver"] = messages_df["receiver"].map(
+            lambda user_id: receiver_name if user_id == receiver_id else sender_name
+        )
+
         return messages_df.to_dict(orient="records")
 
     def insert_message(
