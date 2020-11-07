@@ -2,6 +2,7 @@ import os
 from datetime import datetime
 
 import pandas as pd
+import sqlalchemy
 from sqlalchemy import Column, DateTime, ForeignKey, Integer, Text, and_, create_engine, or_
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
